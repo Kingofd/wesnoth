@@ -26,10 +26,11 @@
 #include "gui/auxiliary/find_widget.hpp"
 #include "gui/auxiliary/tips.hpp"
 #include "gui/core/timer.hpp"
+#include "gui/dialogs/achievements_dialog.hpp"
 #include "gui/dialogs/core_selection.hpp"
 #include "gui/dialogs/debug_clock.hpp"
-#include "gui/dialogs/game_version_dialog.hpp"
 #include "gui/dialogs/help_browser.hpp"
+#include "gui/dialogs/game_version_dialog.hpp"
 #include "gui/dialogs/language_selection.hpp"
 #include "gui/dialogs/lua_interpreter.hpp"
 #include "gui/dialogs/message.hpp"
@@ -163,6 +164,9 @@ void title_screen::init_callbacks()
 	register_hotkey(hotkey::TITLE_SCREEN__RELOAD_WML,
 		std::bind(&gui2::window::set_retval, std::ref(*this), RELOAD_GAME_DATA, true));
 
+	register_hotkey(hotkey::HOTKEY_ACHIEVEMENTS,
+		std::bind(&title_screen::show_achievements, this));
+
 	register_hotkey(hotkey::TITLE_SCREEN__TEST,
 		std::bind(&title_screen::hotkey_callback_select_tests, this));
 
@@ -239,10 +243,7 @@ void title_screen::init_callbacks()
 	// Help
 	//
 	register_button(*this, "help", hotkey::HOTKEY_HELP, []() {
-		if(gui2::new_widgets) {
-			//gui2::dialogs::help_browser::display();
-		}
-
+		help::help_manager help_manager(&game_config_manager::get()->game_config());
 		help::show_help();
 	});
 
@@ -438,6 +439,12 @@ void title_screen::hotkey_callback_select_tests()
 		game_.set_test(options[choice]);
 		set_retval(LAUNCH_GAME);
 	}
+}
+
+void title_screen::show_achievements()
+{
+	achievements_dialog ach;
+	ach.show();
 }
 
 void title_screen::button_callback_multiplayer()
