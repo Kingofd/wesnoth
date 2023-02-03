@@ -5,6 +5,7 @@ gui/widgets/drawing.cpp
 gui/widgets/horizontal_scrollbar.cpp
 gui/widgets/image.cpp
 gui/widgets/label.cpp
+gui/widgets/label_rich.cpp
 gui/widgets/listbox.cpp
 gui/widgets/matrix.cpp
 gui/widgets/menu_button.cpp

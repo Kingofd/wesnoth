@@ -133,7 +133,7 @@ void label_rich::signal_handler_left_button_click(bool& handled)
 	mouse.x -= get_x();
 	mouse.y -= get_y();
 
-	std::string link = get_label_rich_link(mouse);
+	std::string link = get_label_link(mouse);
 
 	if (link.length() == 0) {
 		return ; // without marking event as "handled"
@@ -162,7 +162,7 @@ void label_rich::signal_handler_right_button_click(bool& handled)
 	mouse.x -= get_x();
 	mouse.y -= get_y();
 
-	std::string link = get_label_rich_link(mouse);
+	std::string link = get_label_link(mouse);
 
 	if (link.length() == 0) {
 		return ; // without marking event as "handled"
@@ -190,7 +190,7 @@ void label_rich::signal_handler_mouse_motion(bool& handled, const point& coordin
 	mouse.x -= get_x();
 	mouse.y -= get_y();
 
-	update_mouse_cursor(!get_label_rich_link(mouse).empty());
+	update_mouse_cursor(!get_label_link(mouse).empty());
 
 	handled = true;
 }

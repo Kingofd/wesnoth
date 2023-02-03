@@ -1143,9 +1143,9 @@ std::vector<topic> generate_unit_topics(const bool sort_generated, const std::st
 	}
 
 	if (!race_help_taxonomy.empty()) {
-		text << _("<header>text='Units of this group'</header>") << "\n";
+		text << _("<header>text='Units of this bullshit'</header>") << "\n";
 	} else {
-		text << _("<header>text='Units of this race'</header>") << "\n";
+		text << _("<header>text='Units of this bullshit'</header>") << "\n";
 	}
 	for (const auto &u : race_units) {
 		text << font::unicode_bullet << " " << u << "\n";

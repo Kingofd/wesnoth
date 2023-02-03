@@ -240,7 +240,7 @@ void title_screen::init_callbacks()
 	//
 	register_button(*this, "help", hotkey::HOTKEY_HELP, []() {
 		if(gui2::new_widgets) {
-			gui2::dialogs::help_browser::display();
+			//gui2::dialogs::help_browser::display();
 		}
 
 		help::show_help();
