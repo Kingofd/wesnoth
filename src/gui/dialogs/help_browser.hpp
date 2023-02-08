@@ -17,6 +17,7 @@
 
 #include "gui/dialogs/modal_dialog.hpp"
 #include "help/help_impl.hpp"
+#include "gui/widgets/label_rich.hpp"
 #include <map>
 #include <list>
 

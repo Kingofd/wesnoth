@@ -213,6 +213,7 @@ void help_browser::on_topic_select()
 	auto iter = parsed_pages_.find(topic_id);
 	if(iter == parsed_pages_.end()) {
 		const help::topic* topic = help::find_topic(sec, topic_id);
+		const help::topic& topicRef = *topic; 
 		if(topic == nullptr) {
 			return;
 		}
@@ -220,9 +221,11 @@ void help_browser::on_topic_select()
 		widget_data data;
 		widget_item item;
 
-		item["label"] = format_help_text(topic->text.parsed_text());
-		data.emplace("topic_text", item);
-
+		//item["label"] = format_help_text(topic->text.parsed_text());
+		//data.emplace("topic_text", item);
+		//label_rich& label_rich_text = find_widget<label_rich>(this, "topic_text", false);
+		//label_rich_text.show_topic(topicRef);
+		
 		item.clear();
 		item["label"] = topic->title;
 		data.emplace("topic_title", item);

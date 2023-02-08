@@ -289,7 +289,7 @@ std::string pango_text::get_link(const point & position) const
 
 	std::string tok = this->get_token(position, " \n\r\t");
 
-	if (looks_like_url(tok)) {
+	if (looks_like_url(tok) || looks_like_ref(tok)) {
 		return tok;
 	} else {
 		return "";
